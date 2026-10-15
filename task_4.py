@@ -1,5 +1,3 @@
-from random import randint
-
 class EmployeeSalary:
     hourly_payment = 400
 
@@ -24,13 +22,8 @@ class EmployeeSalary:
         return cls(name, hours, rest_days, email)
 
     @classmethod
-    def set_hourly_payment(cls):
-        cls.hourly_payment = randint(300, 500)
+    def set_hourly_payment(cls, hourly_payment):
+        cls.hourly_payment = hourly_payment
 
     def salary(self):
-        employee = self
-
-        if self.hours is None:
-            employee = EmployeeSalary.get_hours(self.name, self.hours, self.rest_days, self.email)
-
-        return employee.hours * self.hourly_payment
+        return self.hours * self.hourly_payment
